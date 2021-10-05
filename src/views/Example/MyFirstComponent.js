@@ -2,29 +2,51 @@ import React, { Component } from 'react';
 
 export default class MyFirstComponent extends Component {
   state = {
-    name: 'Kido',
-    job: 'dev',
+    firstName: '',
+    lastName: '',
+    fullName: '',
   };
-  handleOnChange = (e) => {
-    this.setState({ name: e.target.value });
+  handleOnChangeFirstName = (event) => {
+    this.setState({ firstName: event.target.value });
   };
-  handleOnClick = () => {
-    console.log('Đã click');
-    alert('ok rồi nhé');
+  handleOnChangeLastName = (event) => {
+    this.setState({ lastName: event.target.value });
+  };
+  handleOnClick = (event) => {
+    event.preventDefault();
+    this.setState({
+      fullName: this.state.firstName + ' ' + this.state.lastName,
+    });
+    console.log('Đã lấy được full name');
   };
   render() {
     return (
       <>
-        <div>
-          <input type="text" onChange={(e) => this.handleOnChange(e)} />
-          <p>Tên tui là {this.state.name}</p>
-        </div>
-        <div>
-          <p>Tui chuẩn bị làm {this.state.job}</p>
-        </div>
-        <div>
-          <button onClick={() => this.handleOnClick()}>Click me</button>
-        </div>
+        <form>
+          <br />
+          <label>First name</label>
+          <br />
+          <input
+            type="text"
+            value={this.state.firstName}
+            onChange={(event) => this.handleOnChangeFirstName(event)}
+          />
+          <br />
+          <label>Last name</label>
+          <br />
+          <input
+            type="text"
+            value={this.state.lastName}
+            onChange={(event) => this.handleOnChangeLastName(event)}
+          />
+          <br />
+          <input
+            type="button"
+            value="Send"
+            onClick={(event) => this.handleOnClick(event)}
+          />
+        </form>
+        <div>Your name is: {this.state.fullName}</div>
       </>
     );
   }
