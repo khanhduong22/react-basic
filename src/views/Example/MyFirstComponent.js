@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ChildComponent from './ChildComponent';
 
 export default class MyFirstComponent extends Component {
   state = {
@@ -46,7 +47,11 @@ export default class MyFirstComponent extends Component {
             onClick={(event) => this.handleOnClick(event)}
           />
         </form>
-        <div>Your name is: {this.state.fullName}</div>
+        <div>
+          From same state, your name is (will show when click on button):{' '}
+          {this.state.fullName}
+        </div>
+        <ChildComponent fname={this.state.firstName} />
       </>
     );
   }
