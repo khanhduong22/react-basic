@@ -8,15 +8,22 @@ export default class MyFirstComponent extends Component {
   handleOnChange = (e) => {
     this.setState({ name: e.target.value });
   };
+  handleOnClick = () => {
+    console.log('Đã click');
+    alert('ok rồi nhé');
+  };
   render() {
     return (
       <>
         <div>
           <input type="text" onChange={(e) => this.handleOnChange(e)} />
-          <h1>Tên tui là {this.state.name}</h1>
+          <p>Tên tui là {this.state.name}</p>
         </div>
         <div>
-          <h1>Tui chuẩn bị làm {this.state.job}</h1>
+          <p>Tui chuẩn bị làm {this.state.job}</p>
+        </div>
+        <div>
+          <button onClick={() => this.handleOnClick()}>Click me</button>
         </div>
       </>
     );
