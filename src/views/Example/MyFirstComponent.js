@@ -6,6 +6,7 @@ export default class MyFirstComponent extends Component {
     firstName: '',
     lastName: '',
     fullName: '',
+    showFullName: false,
   };
   handleOnChangeFirstName = (event) => {
     this.setState({ firstName: event.target.value });
@@ -17,6 +18,7 @@ export default class MyFirstComponent extends Component {
     event.preventDefault();
     this.setState({
       fullName: this.state.firstName + ' ' + this.state.lastName,
+      showFullName: !this.state.showFullName,
     });
     console.log('Đã lấy được full name');
   };
@@ -47,11 +49,14 @@ export default class MyFirstComponent extends Component {
             onClick={(event) => this.handleOnClick(event)}
           />
         </form>
-        <div>
-          From same state, your name is (will show when click on button):{' '}
-          {this.state.fullName}
-        </div>
-        <ChildComponent fname={this.state.firstName} />
+        {this.state.showFullName && (
+          <div>From same state, your name is : {this.state.fullName}</div>
+        )}
+
+        <ChildComponent
+          fname={this.state.firstName}
+          status={this.state.showFullName}
+        />
       </>
     );
   }
