@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 
 export default class ChildComponent extends Component {
-  state = {
-    show: true,
-  };
-  handleOnClick = () => {
-    this.setState({ show: !this.state.show });
-    console.log('đã click');
-  };
+  state = {};
+
   render() {
     return (
       <div>
@@ -15,7 +10,7 @@ export default class ChildComponent extends Component {
           <>
             <div> This is first name from props: {this.props.fname}</div>
             <div>
-              <button onClick={() => this.handleOnClick()}>
+              <button onClick={() => this.props.addNewJob()}>
                 Hide the first name line
               </button>
             </div>
