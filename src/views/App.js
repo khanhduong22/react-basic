@@ -7,6 +7,7 @@ import ToDoList from './Todos/ToDoList';
 import MyFirstComponent from './Example/MyFirstComponent';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import ListUser from './User/ListUser';
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
             </Route>
             <Route path="/" exact>
               <Home />
+            </Route>
+            <Route path="/user" exact>
+              <ListUser />
             </Route>
           </Switch>
         </header>
