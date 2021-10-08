@@ -1,7 +1,9 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import './ListUser.scss';
 
-export default class ListUser extends Component {
+class ListUser extends Component {
   state = {
     listUser: [],
   };
@@ -20,9 +22,14 @@ export default class ListUser extends Component {
           https://reqres.in/api/users?page=2
         </div>
         {listUser.map((item, index) => {
+          let id = index + 1;
+
           return (
-            <div>
-              {item.first_name} - {item.first_name} - {item.email}
+            <div
+              className="user"
+              onClick={() => this.props.history.push(`/user/${id}`)}
+            >
+              {index + 1} - {item.first_name} {item.last_name}
             </div>
           );
         })}
@@ -30,3 +37,5 @@ export default class ListUser extends Component {
     );
   }
 }
+
+export default withRouter(ListUser);

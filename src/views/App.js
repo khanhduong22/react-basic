@@ -8,6 +8,7 @@ import MyFirstComponent from './Example/MyFirstComponent';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ListUser from './User/ListUser';
+import DetailUser from './User/DetailUser';
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
             </Route>
             <Route path="/user" exact>
               <ListUser />
+            </Route>
+            <Route path="/user/:id">
+              <DetailUser />
             </Route>
           </Switch>
         </header>
