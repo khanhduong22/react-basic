@@ -22,5 +22,8 @@ class Home extends Component {
     );
   }
 }
+<<<<<<< HEAD
 
 export default Color(Home);
+=======
+>>>>>>> dea78e5779ecf07733b29b6ecddfc42fdb2e0dda
